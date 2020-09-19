@@ -1,0 +1,26 @@
+.CommentContainer {
+    background: #3A3A3C;
+    display: grid;
+    width: 70%;
+    margin: 3% 15% 0 15%;
+    grid-template-columns: 1fr;
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 1em;
+    justify-self: center;
+}
+
+.innerBlueBoxContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.blueBox {
+    height: 70vh;
+    width: 95%;
+    justify-self: center;
+    background: #D8EFF0;
+}
+
+h2 {
+    color: black;
+}

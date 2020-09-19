@@ -1,0 +1,31 @@
+.l {
+    text-align: center;
+    min-height: 100vh;
+    background-color: #F1666C;
+}
+
+.AppHeader {
+    padding-top: 50px;
+}
+
+.LogoHeader {
+    width: 65%;
+    padding-top: 100px;
+    pointer-events: none;
+}
+
+.l button {
+    font-size: 1em;
+    border: none;
+    width: 150px;
+    height: 50px;
+    font-family: 'Press Start 2P', cursive;
+    color: #75CDD5;
+    background-color: #3A3A3C;
+}
+
+button:hover {
+    border: none;
+    background-color: #75CDD5;
+    color: #D8EFF0;
+}

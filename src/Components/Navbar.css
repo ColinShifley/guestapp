@@ -1,0 +1,27 @@
+h1 {
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+}
+
+.btnContainer {
+    display: grid;
+    margin-top: 10px;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 1em;
+    justify-self: center;
+}
+
+.btn1, .btn2, .btn3 {
+    padding: 0 10px;
+    justify-self: center;
+    background-color: #3A3A3C;
+}
+
+.btn1:hover, .btn2:hover, .btn3:hover {
+    border: none;
+    background-color: #75CDD5;
+}
+
+
+

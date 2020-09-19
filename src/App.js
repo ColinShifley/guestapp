@@ -1,26 +1,48 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import logo from "./Components/images/logo.png";
+import Wrapper from "./Components/Wrapper";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+    state = {
+        posts: {},
+        page: {}
+    }
+
+    //Custom Functions
+        addPost = post => {
+            //1. Take a copy of existing Posts
+            const posts = {...this.state.posts};
+            //2. add our new Posts to the Posts
+            posts[`post${Date.now()}`] = post;
+            //3. Set the new Posts objest to state
+            this.setState({posts});
+            console.log(post);
+        }
+
+        activePage = whichPage => {
+
+                this.setState({page: whichPage});
+                console.log(this.state.page)
+        }
+
+    // componentDidMount() {
+    //     activePage;
+    // }
+
+    render() {
+        return (
+            <div className="App">
+                <div className="App">
+                    <header className="App-header">
+                        <img className={'LogoHeader'} src={logo} alt={'logo'}/>
+                    </header>
+                    <Wrapper activePage={this.activePage}/>
+                </div>
+            </div>
+        );
+    }
 }
 
 export default App;
