@@ -1,0 +1,19 @@
+.show {
+    text-align: center;
+    min-height: 100vh;
+    background-color: #F1666C;
+}
+
+.AppHeader {
+    padding-top: 50px;
+}
+
+.LogoHeader {
+    width: 65%;
+    padding-top: 100px;
+    pointer-events: none;
+}
+
+.show h1 {
+    color: black;
+}
