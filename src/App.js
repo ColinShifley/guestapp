@@ -1,58 +1,59 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import logo from "./Components/images/logo.png";
 import Wrapper from "./Components/Wrapper";
-//import SignNow from "./Components/SignNow";
-//import DisplayPosts from "./Components/DisplayPosts";
+import SignNow from "./Components/SignNow";
+import DisplayPosts from "./Components/DisplayPosts";
 
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            posts: '',
-            page: ''
-        }
-    }
+export default function App() {
+    const [post, setPost] = useState('No Posts Yet');
+    const [page, setPage] = useState('SignNow');
+
 
     // Custom Functions
-        addPost = post => {
-            //1. Take a copy of existing Posts
-            const posts = {...this.state.posts};
-            //2. add our new Posts to the Posts
-            posts[`post${Date.now()}`] = post;
-            //3. Set the new Posts objest to state
-            this.setState({posts});
-            console.log(post);
+    function addPost(post) {
+        setPost(post);
+        console.log('post');
+    }
+
+
+    function activePage(whichPage)  {
+        setPage(whichPage)
+        console.log(page)
+    }
+
+    function displaySignPage() {
+        if (page === 'SignNow') {
+            console.log('This is the SignNow Display Data')
+            return  <SignNow addPost={addPost}/>
         }
+    }
 
-        activePage = whichPage => {
-                let currentPage = {...this.state.page};
-                //trying to fix Asynchronous issue with Page
-                currentPage = whichPage;
-                this.setState(() => ({
-                    page: currentPage
-                }), () => {
-                    console.log(this.state.page)
-                });
-        }
+useEffect(() => {
+    displaySignPage()
+    console.log('effect is working')
+}, [page])
 
-    render() {
 
-        return (
-            <div className="App">
-                    <header className="App-header">
-                        <img className={'LogoHeader'} src={logo} alt={'logo'}/>
-                    </header>
+    return (
+        <div className="App">
+            <header className="App-header">
+                <img className={'LogoHeader'} src={logo} alt={'logo'}/>
+            </header>
+            <h1>{displaySignPage}</h1>
+            <Wrapper activePage={activePage}>
 
-                    <Wrapper activePage={this.activePage}></Wrapper>
+                <DisplayPosts post={post}/>
+                {page}
+            </Wrapper>
 
-                {/* (This was to test if it worked)
+            {/* (This was to test if it worked)
                 <h1>{Object.keys(this.state.page).map(key => <SignNow key={key} details={this.state.page[key]}/>)}</h1>
                 */}
-            </div>
-        );
-    }
+        </div>
+    );
+
+
 }
 
-export default App;

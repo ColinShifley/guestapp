@@ -3,22 +3,27 @@ import './Navbar.css'
 
 class Navbar extends Component {
 
-    constructor(props) {
-        super(props)
-        this.handleClick = this.handleClick.bind(this);
-    }
+    // constructor(props) {
+    //     super(props)
+    //     this.handleClick = this.handleClick.bind(this)
+    // }
+
+    // handleClick = (event) => {
+    //     event.preventDefault();
+    //     const page1 = event.target.id;
+    //     this.props.activePage(page1)
+    // }
 
     handleClick = (event) => {
-        event.preventDefault();
-        const page1 = event.target.id;
-        this.props.activePage(page1)
+        this.props.activePage(event.target.name)
     }
 
 
     render() {
         return (
             <div className={'btnContainer'}>
-                <button id={'Sign Now'} onClick={(e) => this.handleClick(e)} className={'btn1'}>
+                {/*<button id={'Sign Now'} onClick={(e) => this.handleClick(e), id} className={'btn1'}>*/}
+                <button name={'SignNow'} onClick={this.handleClick.bind(this)}>
                     <h1>Sign Now</h1>
                 </button>
                 <button id={'Display Posts'} onClick={(e) => this.handleClick(e)} className={'btn2'}>
