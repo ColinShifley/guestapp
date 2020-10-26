@@ -28,8 +28,8 @@ class SignNow extends Component {
                 <input name={'comment'} ref={this.commentRef} type={'text'} placeholder={'Comment'}/>
                 <button type={'submit'}>Create New Post</button>
             </form>
-        );
-    };
-};
+        )
+    }
+}
 
 export default SignNow;

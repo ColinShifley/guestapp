@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import logo from "./Components/images/logo.png";
 import Wrapper from "./Components/Wrapper";
@@ -7,33 +7,55 @@ import DisplayPosts from "./Components/DisplayPosts";
 
 
 export default function App() {
-    const [post, setPost] = useState('No Posts Yet');
+    const [post, setPost] = useState('');
     const [page, setPage] = useState('SignNow');
 
 
     // Custom Functions
     function addPost(post) {
         setPost(post);
-        console.log('post');
+        console.log(post);
     }
 
 
     function activePage(whichPage)  {
         setPage(whichPage)
         console.log(page)
+        console.log(post)
     }
 
-    function displaySignPage() {
-        if (page === 'SignNow') {
-            console.log('This is the SignNow Display Data')
-            return  <SignNow addPost={addPost}/>
-        }
+
+let dpage;
+    if (page === 'SignNow') {
+        dpage = <SignNow addPost={addPost}></SignNow>
+    };
+
+let dPosts;
+    if (page === 'DisplayPosts') {
+        dPosts = <DisplayPosts post={post}></DisplayPosts>
     }
 
-useEffect(() => {
-    displaySignPage()
-    console.log('effect is working')
-}, [page])
+
+    // useEffect(() => {
+    //     function displaySignPage() {
+    //         if (page === 'SignNow') {
+    //             const sNPage = (
+    //                 <div>
+    //                     <SignNow addPost={addPost}>{post}</SignNow>
+    //                 </div>
+    //             )
+    //             console.log('This is the SignNow Display Data')
+    //             return sNPage
+    //         } else
+    //         {
+    //             return null
+    //         }
+    //     }
+    //     displaySignPage()
+    //     console.log('effect is working')
+    // }, [page, post])
+
+
 
 
     return (
@@ -41,16 +63,10 @@ useEffect(() => {
             <header className="App-header">
                 <img className={'LogoHeader'} src={logo} alt={'logo'}/>
             </header>
-            <h1>{displaySignPage}</h1>
-            <Wrapper activePage={activePage}>
 
-                <DisplayPosts post={post}/>
-                {page}
+            <Wrapper activePage={activePage} dpage={dpage} dPosts={dPosts}>
+
             </Wrapper>
-
-            {/* (This was to test if it worked)
-                <h1>{Object.keys(this.state.page).map(key => <SignNow key={key} details={this.state.page[key]}/>)}</h1>
-                */}
         </div>
     );
 

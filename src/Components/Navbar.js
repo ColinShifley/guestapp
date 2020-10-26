@@ -15,6 +15,7 @@ class Navbar extends Component {
     // }
 
     handleClick = (event) => {
+        event.preventDefault()
         this.props.activePage(event.target.name)
     }
 
@@ -26,10 +27,10 @@ class Navbar extends Component {
                 <button name={'SignNow'} onClick={this.handleClick.bind(this)}>
                     <h1>Sign Now</h1>
                 </button>
-                <button id={'Display Posts'} onClick={(e) => this.handleClick(e)} className={'btn2'}>
+                <button name={'DisplayPosts'} onClick={this.handleClick.bind(this)} className={'btn2'}>
                     <h1>Display Posts</h1>
                 </button>
-                <button id={'Posts'} onClick={(e) => this.handleClick(e)} className={'btn3'}>
+                <button id={'Posts'} onClick={this.handleClick.bind(this)} className={'btn3'}>
                     <h1>Posts</h1>
                 </button>
             </div>
