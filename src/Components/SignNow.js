@@ -1,21 +1,28 @@
 import React, {Component} from 'react';
 import './SignNow.css'
 
-
-
 class SignNow extends Component {
+    // state = {
+    //     count: 0
+    // };
+
     nameRef = React.createRef();
     titleRef = React.createRef();
     commentRef = React.createRef();
 
     createPost = (event) => {
+        // this.setState(({ count }) => ({
+        //     count: count + 1
+        // }));
         //1. Stop form from Submitting
         event.preventDefault();
         const post = {
+            id: this.props.count,
             name: this.nameRef.current.value,
             title: this.titleRef.current.value,
             comment: this.commentRef.current.value
         };
+        this.props.addToCount();
         this.props.addPost(post);
         event.currentTarget.reset();
     }

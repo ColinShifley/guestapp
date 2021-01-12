@@ -9,4 +9,4 @@ const CommentContent = (props) => {
     );
 };
 
-export default CommentContent;
+export default CommentContent

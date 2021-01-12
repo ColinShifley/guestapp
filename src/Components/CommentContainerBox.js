@@ -10,13 +10,10 @@ class CommentContainerBox extends Component {
             <Navbar {...this.props}/>
             <div className={'innerBlueBoxContainer'}>
                 <div className={'blueBox'}>
-
-                    {/*Having trouble gaining Access to function in App*/}
-                    {/*<SignNow addPost={this.props.addPost}></SignNow>*/}
-
-                    <Comment image={''} title={''} comment={''}/>
+                    <Comment {...this.props}/>
                     {this.props.dpage}
                     {this.props.dPosts}
+                    {this.props.fCPosts}
                 </div>
             </div>
         </div>
