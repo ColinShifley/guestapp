@@ -11,9 +11,6 @@ class SignNow extends Component {
     commentRef = React.createRef();
 
     createPost = (event) => {
-        // this.setState(({ count }) => ({
-        //     count: count + 1
-        // }));
         //1. Stop form from Submitting
         event.preventDefault();
         const post = {

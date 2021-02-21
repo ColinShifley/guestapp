@@ -13,7 +13,7 @@ class CommentContainerBox extends Component {
                     <Comment {...this.props}/>
                     {this.props.dpage}
                     {this.props.dPosts}
-                    {this.props.fCPosts}
+                    {this.props.fStuff}
                 </div>
             </div>
         </div>

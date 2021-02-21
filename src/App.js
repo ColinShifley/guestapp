@@ -27,9 +27,9 @@ export default function App() {
 
     useEffect(() => {
             const db = firebase.firestore();
-            db.collection('Posts').onSnapshot((snapshot => {
+            return db.collection('Posts').onSnapshot((snapshot => {
                 const PostsData = []
-                snapshot.forEach(doc => PostsData.push(({...doc.data(), id: doc.id})))
+                snapshot.forEach(doc => PostsData.push(({posts: {...doc.data(), id: doc.id}})))
                 setFCloud(PostsData)
             }))
     }, [])
@@ -48,13 +48,12 @@ export default function App() {
          localStorage.setItem('posts', JSON.stringify(posts))
      }, [posts]);
 
-let dpage;
+var dpage;
         if (page === 'SignNow') {
             dpage = <SignNow addPost={addPost} addToCount={addToCount} count={count}></SignNow>
-            console.log('this is fcloud data', fCloud)
         };
 
-    let dPosts;
+    var dPosts;
         if (page === 'DisplayPosts') {
             let postsCopy = [...posts];
             dPosts = postsCopy.map((posts1) => {
@@ -64,15 +63,34 @@ let dpage;
                 });
         };
 
-    let fCloudPosts;
-        if (page === 'Posts') {
-            let fCloudCopy = [...fCloud];
-            fCloudPosts = fCloudCopy.map((fCPosts) => {
-                return (
-                    <Posts fCPosts={fCPosts} key={fCPosts.index}></Posts>
-                )
-            })
-        }
+
+if (fCloud === true) {
+    console.log('fCloud Ready')
+}
+
+
+
+    if (page === 'Posts') {
+    var fStuff;
+            const fCloudCopy = [...fCloud];
+            fStuff = new Promise((resolve, reject) => {
+                if (fCloud) {
+                    resolve(
+                        fCloudCopy.map((fCPosts) => {
+                            return (
+                                <Posts fCPosts={fCPosts} key={fCPosts.posts.id}/>
+                            );
+                        })
+                    );
+                } else {
+                    reject(Error('uh oh'));
+                }
+            });
+           fStuff.then((result) => result)
+
+        console.log(fCloud)
+        console.log('FStuff: ', fStuff)
+    }
 
     return (
         <div className="App">
@@ -80,10 +98,8 @@ let dpage;
                 <img className={'LogoHeader'} src={logo} alt={'logo'}/>
             </header>
 
-            <Wrapper activePage={activePage} dpage={dpage} dPosts={dPosts} fCloudPosts={fCloudPosts}>
+            <Wrapper activePage={activePage} dpage={dpage} dPosts={dPosts} fStuff={fStuff}>
             </Wrapper>
         </div>
     );
-
-
 }
