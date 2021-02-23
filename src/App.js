@@ -27,12 +27,22 @@ export default function App() {
 
     useEffect(() => {
             const db = firebase.firestore();
-            return db.collection('Posts').onSnapshot((snapshot => {
+            return db.collection('Posts').onSnapshot(snapshot => {
                 const PostsData = []
-                snapshot.forEach(doc => PostsData.push(({posts: {...doc.data(), id: doc.id}})))
+                snapshot.forEach(doc => PostsData.push({...doc.data(), id: doc.id}))
                 setFCloud(PostsData)
-            }))
+            });
     }, [])
+
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         const db = firebase.firestore();
+    //         const data = await db.collection("Posts").get();
+    //         setFCloud(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+    //     };
+    //     fetchData();
+    // }, [page]);
+
 
     function addToCount() {
         setCount(count + 1)
@@ -42,6 +52,8 @@ export default function App() {
         setPage(whichPage)
         console.log(page)
         console.log("Post: ", posts)
+        console.log('FCloud: ', fCloud)
+        console.log('FStuff: ', fStuff)
     }
 
      useEffect(() => {
@@ -64,32 +76,17 @@ var dpage;
         };
 
 
-if (fCloud === true) {
-    console.log('fCloud Ready')
-}
-
-
-
-    if (page === 'Posts') {
     var fStuff;
-            const fCloudCopy = [...fCloud];
-            fStuff = new Promise((resolve, reject) => {
-                if (fCloud) {
-                    resolve(
-                        fCloudCopy.map((fCPosts) => {
-                            return (
-                                <Posts fCPosts={fCPosts} key={fCPosts.posts.id}/>
-                            );
-                        })
-                    );
-                } else {
-                    reject(Error('uh oh'));
-                }
-            });
-           fStuff.then((result) => result)
-
-        console.log(fCloud)
+    if (page === 'Posts') {
+        let fCloudCopy = [...fCloud];
+        fStuff = fCloudCopy.map((fCPosts) => {
+            return (
+                <Posts fCPosts={fCPosts} key={fCPosts.post.id}/>
+            );
+        });
+        console.log('FCloud: ', fCloud)
         console.log('FStuff: ', fStuff)
+        console.log('Posts: ', posts)
     }
 
     return (
