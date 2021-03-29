@@ -6,6 +6,7 @@ import Wrapper from "./Components/Wrapper";
 import SignNow from "./Components/SignNow";
 import Posts from "./Components/Posts"
 import DisplayPosts from "./Components/DisplayPosts";
+import { FooterContainer} from "./container/footer";
 
 export default function App() {
     const [posts, setPost] = useState([]);
@@ -33,16 +34,6 @@ export default function App() {
                 setFCloud(PostsData)
             });
     }, [])
-
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         const db = firebase.firestore();
-    //         const data = await db.collection("Posts").get();
-    //         setFCloud(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
-    //     };
-    //     fetchData();
-    // }, [page]);
-
 
     function addToCount() {
         setCount(count + 1)
@@ -75,13 +66,12 @@ var dpage;
                 });
         };
 
-
     var fStuff;
     if (page === 'Posts') {
         let fCloudCopy = [...fCloud];
         fStuff = fCloudCopy.map((fCPosts) => {
             return (
-                <Posts fCPosts={fCPosts} key={fCPosts.post.id}/>
+                <Posts fCPosts={fCPosts} key={fCPosts.id}/>
             );
         });
         console.log('FCloud: ', fCloud)
@@ -97,6 +87,7 @@ var dpage;
 
             <Wrapper activePage={activePage} dpage={dpage} dPosts={dPosts} fStuff={fStuff}>
             </Wrapper>
+            <FooterContainer/>
         </div>
     );
 }

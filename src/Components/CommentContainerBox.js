@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './CommentContainerBox.css';
 import Navbar from "./Navbar";
-import Comment from "./Comment";
+
 
 class CommentContainerBox extends Component {
     render () {
@@ -10,7 +10,6 @@ class CommentContainerBox extends Component {
             <Navbar {...this.props}/>
             <div className={'innerBlueBoxContainer'}>
                 <div className={'blueBox'}>
-                    <Comment {...this.props}/>
                     {this.props.dpage}
                     {this.props.dPosts}
                     {this.props.fStuff}

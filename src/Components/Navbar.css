@@ -6,13 +6,21 @@ h1 {
 .btnContainer {
     display: grid;
     margin-top: 10px;
-    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 95%;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    column-gap: 10px;
     grid-template-columns: 1fr 1fr 1fr;
     padding: 1em;
     justify-self: center;
 }
 
 .btn1, .btn2, .btn3 {
+    width: 100%;
     padding: 0 10px;
     justify-self: center;
     background-color: #3A3A3C;

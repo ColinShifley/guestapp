@@ -1,0 +1,27 @@
+.cBox {
+    font-family: "Arial";
+    font-size: 2em;
+    background: #3A3A3C;
+    width: 80%;
+    margin: 0 auto;
+    border: 2px #F1666C;
+    text-align: left;
+    padding: 10px;
+    background:rgba(0,0,0,0.1);
+}
+
+.name {
+    font-family: "Arial Black";
+    font-size: 1em;
+    margin: 0px;
+    padding: 0px;
+}
+
+.title {
+    font-size: .5em;
+    font-style: italic;
+}
+
+.comment {
+    font-size: .5em;
+}

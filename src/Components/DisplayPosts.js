@@ -5,11 +5,11 @@ class DisplayPosts extends Component {
         return (
             <div>
                 <div className={'PostItem'}>
-                    <h1>
-                        Name:{this.props.posts1.name}<br/>
-                        Title:{this.props.posts1.title}<br/>
-                        Comment:{this.props.posts1.comment}<br/>
-                    </h1>
+                    <div className={'cBox'}>
+                        <div className={'name'}>Name:{this.props.posts1.name}<br/></div>
+                        <div className={'title'}>Title:{this.props.posts1.title}<br/></div>
+                        <div className={'comment'}>Comment:{this.props.posts1.comment}<br/></div>
+                    </div>
                 </div>
             </div>
         );
