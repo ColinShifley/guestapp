@@ -8,15 +8,16 @@ h1 {
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
-    width: 95%;
+    width: 99.25%;
     grid-column-start: 1;
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 3;
     column-gap: 10px;
     grid-template-columns: 1fr 1fr 1fr;
-    padding: 1em;
+    padding: 1em 1em 1.5em 1em;
     justify-self: center;
+    height: 15vh;
 }
 
 .btn1, .btn2, .btn3 {

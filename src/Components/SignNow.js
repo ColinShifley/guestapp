@@ -2,10 +2,6 @@ import React, {Component} from 'react';
 import './SignNow.css'
 
 class SignNow extends Component {
-    // state = {
-    //     count: 0
-    // };
-
     nameRef = React.createRef();
     titleRef = React.createRef();
     commentRef = React.createRef();
@@ -27,9 +23,9 @@ class SignNow extends Component {
     render() {
         return (
             <form className={'post-edit'} onSubmit={this.createPost}>
-                <input name={'name'} ref={this.nameRef} type={'text'} placeholder={'Name'}/>
-                <input name={'title'} ref={this.titleRef} type={'text'} placeholder={'Title'}/>
-                <input name={'comment'} ref={this.commentRef} type={'text'} placeholder={'Comment'}/>
+                <input name={'name'} className={'name1'} ref={this.nameRef} type={'text'} placeholder={'Name'}/>
+                <input name={'title'} className={'title1'} ref={this.titleRef} type={'text'} placeholder={'Title'}/>
+                <textarea name={'comment'} className={'comment1'} ref={this.commentRef} type={'text'} placeholder={'Comment'}/>
                 <button type={'submit'}>Create New Post</button>
             </form>
         )

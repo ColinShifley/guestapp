@@ -17,3 +17,31 @@
 .show h1 {
     color: black;
 }
+
+/* Form Style */
+
+
+
+input[type=text] {
+    padding:10px;
+    margin:10px;
+}
+
+.name1, .title1 {
+    width: 45.25%;
+}
+
+textarea.comment1 {
+    padding:10px;
+    margin:10px;
+    width: 93%;
+    height: 20vh;
+}
+
+.input.comment1::placeholder {
+    text-align: left;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
