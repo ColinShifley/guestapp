@@ -5,7 +5,7 @@ import Enter from './Enter';
 
 
 const Router = () => (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Switch>
             <Route exact path={'/'} component={Enter}/>
             <Route path={'/App'} component={App}/>

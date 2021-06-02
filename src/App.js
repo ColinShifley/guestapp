@@ -13,7 +13,7 @@ export default function App() {
     const [page, setPage] = useState('SignNow');
     const [count, setCount] = useState(0)
     const [fCloud, setFCloud] = useState([])
-
+console.log('its working')
     // Custom Functions
     function addPost(post) {
         // Using .concat(), wrapper function (recommended)
