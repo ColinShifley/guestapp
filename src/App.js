@@ -41,10 +41,10 @@ export default function App() {
 
     function activePage(whichPage)  {
         setPage(whichPage)
-        console.log(page)
-        console.log("Post: ", posts)
-        console.log('FCloud: ', fCloud)
-        console.log('FStuff: ', fStuff)
+        // console.log(page)
+        // console.log("Post: ", posts)
+        // console.log('FCloud: ', fCloud)
+        // console.log('FStuff: ', fStuff)
     }
 
      useEffect(() => {
@@ -74,9 +74,9 @@ var dpage;
                 <Posts fCPosts={fCPosts} key={fCPosts.id}/>
             );
         });
-        console.log('FCloud: ', fCloud)
-        console.log('FStuff: ', fStuff)
-        console.log('Posts: ', posts)
+        // console.log('FCloud: ', fCloud)
+        // console.log('FStuff: ', fStuff)
+        // console.log('Posts: ', posts)
     }
 
     return (

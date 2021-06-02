@@ -1,4 +1,6 @@
 .cBox {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
     font-family: "Arial";
     font-size: 2em;
     background: #3A3A3C;
@@ -24,4 +26,8 @@
 
 .comment {
     font-size: .5em;
+}
+
+.cmt {
+    width: 100%;
 }
